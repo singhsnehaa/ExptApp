@@ -12,10 +12,15 @@ target 'ExptApp' do
     :hermes_enabled => false
   )
 
+
+
   target 'ExptAppTests' do
     inherit! :complete
+    pod 'react-native-contacts', :path => '../node_modules/react-native-contacts'
     # Pods for testing
   end
+
+
 
   # Enables Flipper.
   #
@@ -27,3 +32,4 @@ target 'ExptApp' do
     react_native_post_install(installer)
   end
 end
+
