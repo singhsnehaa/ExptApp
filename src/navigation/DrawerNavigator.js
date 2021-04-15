@@ -12,14 +12,14 @@ import {
   StatusBarHeight,
 } from '../common/Platform';
 import Icons from '../common/Icons';
+import linking from '../pages/linking';
 
 const Drawer = createDrawerNavigator();
 
 export function DrawerNavigator() {
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking} fallback={<Text>Loading...</Text>}>
       <Drawer.Navigator
-        initialRouteName="Home"
         initialRouteName="Home"
         openByDefault={false}
         //drawerContent={props => <CustomDrawerContent {...this.props} />}
