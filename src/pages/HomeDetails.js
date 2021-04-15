@@ -16,7 +16,7 @@ function HomeDetails() {
       />
 
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text>Home Details</Text>
+        <Text style={{fontSize: 25, color: COLORS.WARNING}}>Home Details</Text>
       </View>
     </>
   );
