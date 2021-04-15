@@ -4,7 +4,11 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {NavigationContainer} from '@react-navigation/native';
-import {HomeStackContainer, ProfileStackContainer} from './StackNavigator';
+import {
+  HomeStackContainer,
+  ProfileStackContainer,
+  SettingStackContainer,
+} from './StackNavigator';
 import Setting from '../pages/Setting';
 import {COLORS} from '../common/Colors';
 import {
@@ -55,7 +59,7 @@ export function TabNavigator() {
       />
       <Tab.Screen
         name="Setting"
-        component={Setting}
+        component={SettingStackContainer}
         options={{
           tabBarIcon: ({color, size, focused}) => (
             <Ionicons

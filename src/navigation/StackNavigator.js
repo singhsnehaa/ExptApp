@@ -6,9 +6,13 @@ import Home from '../pages/Home';
 import HomeDetails from '../pages/HomeDetails';
 import Profile from '../pages/Profile';
 import ProfileDetails from '../pages/ProfileDetails';
+import Setting from '../pages/Setting';
+import SettingDeatils from '../pages/SettingDeatils';
+import InnerDetailsSetting from '../pages/InnerDetailsSetting';
 
 const HomeStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
+const SettingStack = createStackNavigator();
 
 export function HomeStackContainer() {
   return (
@@ -25,5 +29,18 @@ export function ProfileStackContainer() {
       <ProfileStack.Screen name="Profile" component={Profile} />
       <ProfileStack.Screen name="ProfileDetails" component={ProfileDetails} />
     </ProfileStack.Navigator>
+  );
+}
+
+export function SettingStackContainer() {
+  return (
+    <SettingStack.Navigator screenOptions={{headerShown: false}}>
+      <SettingStack.Screen name="Setting" component={Setting} />
+      <SettingStack.Screen name="SettingDeatils" component={SettingDeatils} />
+      <SettingStack.Screen
+        name="InnerDetailsSetting"
+        component={InnerDetailsSetting}
+      />
+    </SettingStack.Navigator>
   );
 }
