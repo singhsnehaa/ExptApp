@@ -12,11 +12,11 @@ target 'ExptApp' do
     :hermes_enabled => false
   )
 
+  pod 'react-native-contacts', :path => '../node_modules/react-native-contacts'
 
 
   target 'ExptAppTests' do
     inherit! :complete
-    pod 'react-native-contacts', :path => '../node_modules/react-native-contacts'
     # Pods for testing
   end
 
