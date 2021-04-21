@@ -11,11 +11,10 @@ import Icons from '../common/Icons';
 import {COLORS} from '../common/Colors';
 
 function InnerDetailsSetting(props) {
-  const [number, setNumber] = useState('656567887');
-
-  // handleNumber = num => {
-  //   this.setNumber({number: num});
-  // };
+  console.log('props [InnerDetailsSetting]', props);
+  const {route} = props;
+  const phone = route.params?.phone;
+  const [number, setNumber] = useState(phone || 0);
 
   return (
     <>
@@ -36,7 +35,6 @@ function InnerDetailsSetting(props) {
             style={styles.input}
             multiline={true}
             numberOfLines={4}
-            // onChangeText={this.handleNumber}
             onChangeText={num => setNumber(num)}
             value={number}
           />
