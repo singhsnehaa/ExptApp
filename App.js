@@ -11,9 +11,9 @@ const App = () => {
   return (
     <Root>
       {/* <AppRouter /> */}
-      {/* <MainDrawerNavigation /> */}
+      <MainDrawerNavigation />
       {/* <CombinedNavigation /> */}
-      <DrawerNavigator />
+      {/* <DrawerNavigator /> */}
     </Root>
   );
 };
