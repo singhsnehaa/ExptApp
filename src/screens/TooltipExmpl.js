@@ -10,8 +10,10 @@ import {
 import Tooltip from 'react-native-walkthrough-tooltip';
 import Header from '../common/Header';
 import MyButton from '../common/Button';
-const {height, width} = Dimensions.get('window');
 import {ProfileDetails} from '../components/ProfileDetails';
+
+const {height, width} = Dimensions.get('window');
+export const ProfileContext = React.createContext();
 
 export function TooltipExmpl() {
   closeToolTipHandler = () => {
@@ -152,7 +154,10 @@ export function TooltipExmpl() {
           </View>
         </View>
 
-        <ProfileDetails tooltip={tooltip} setTooltip={setTooltip} />
+        <ProfileContext.Provider
+          value={{tooltip: tooltip, setTooltip: setTooltip}}>
+          <ProfileDetails />
+        </ProfileContext.Provider>
       </View>
 
       <MyButton

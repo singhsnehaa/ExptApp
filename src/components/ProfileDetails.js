@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {
   View,
   Text,
@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import Tooltip from 'react-native-walkthrough-tooltip';
 import MyButton from '../common/Button';
+import {ProfileContext} from '../screens/TooltipExmpl';
 
 const DATA = [
   {
@@ -28,8 +29,9 @@ const DATA = [
   },
 ];
 
-export function ProfileDetails(props) {
-  const {tooltip, setTooltip} = props;
+export function ProfileDetails() {
+  const {tooltip, setTooltip} = useContext(ProfileContext);
+  // console.log('tooltip', tooltip);
 
   closeToolTipHandler = () => {
     setTooltip({
