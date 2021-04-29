@@ -11,22 +11,7 @@ import {
   Image,
   ActivityIndicator,
 } from 'react-native';
-import {
-  Container,
-  Label,
-  Content,
-  Header,
-  Button,
-  Icon,
-  H2,
-  Left,
-  Right,
-  Body,
-  Title,
-  Toast,
-  List,
-  ListItem,
-} from 'native-base';
+import {Container, Label, Content, Button} from 'native-base';
 import {COLORS} from '../common/Colors';
 import Icons from '../common/Icons';
 import {
