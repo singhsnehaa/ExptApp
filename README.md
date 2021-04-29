@@ -1,27 +1,23 @@
-# Apple Sign In Integration
+# ToolTip Integration
 
 This is sample Experiment project where small small experiment did and all are diffrentiated by **Branch name**
 
-###### Apple Sign In Integration done in only one Screen:-
+###### ToolTip Integration done in only Two Screens:-
 
-1. Page Name is **AppleSignIn** , available under in **src -> screens -> AppleSignIn** .
-2. many other Screens are also availble but that are not used for Apple Sign In integration.
-3. It is Drawer Navigation.
-4. only One Page code
+1. These are **TooltipExample** available into the **src -> screens -> TooltipExample** & **ProfileDetails** is **src -> components -> ProfileDetails** .
+2. I used Functional Component and Context Api for passing Props in **ProductDetails** page .
+3. I also used **useContext** Hooks for receiving Props from parent page . It is betterment of ContextApi Consumer.
+4. many other Screens are also availble but that are not used for ToolTip Integration.
 
-###### To accomplish this project you may follow these steps:-
+###### To accomplish this experiment you may follow these steps:-
 
-- For IOS setup open your existing XCode project i.e **your_project_name.xcworkspace** and follow this step `https://github.com/invertase/react-native-apple-authentication/blob/master/docs/INITIAL_SETUP.md`
-
-- make sure you have **Apple ID**, if not then create Apple account.
-
-- Apple Sign In work only IOS Device or IOS Simullator.
+- take help to better understanding of all properties. `https://www.npmjs.com/package/react-native-walkthrough-tooltip`.
 
 # Run Project Locally
 
 This React Native project can be setup locally in <ins>_3 simple steps_</ins> and also assume that **_React Native Cli_** and **_Android Studio_** is already installed.
 
-1. Clone the repository from remote to local machine by using `https://github.com/singhsnehaa/ExptApp/tree/AppleSignIn` command in your terminal.
+1. Clone the repository from remote to local machine by using `https://github.com/singhsnehaa/ExptApp/tree/Tooltip-useRender` command in your terminal.
 
 2. Navigate to the project folder by `cd ExptApp` and install the dependencies by command `npm install`
 
