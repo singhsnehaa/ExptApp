@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useReducer} from 'react';
 import {
   View,
   Text,
@@ -16,22 +16,34 @@ const {height, width} = Dimensions.get('window');
 export const ProfileContext = React.createContext();
 
 export function TooltipExmpl() {
-  closeToolTipHandler = () => {
-    setTooltip({
-      ...tooltip,
-      toolTipOne: false,
-      toolTipTwo: false,
-      toolTipThree: false,
-      toolTipFour: false,
-    });
-  };
-
-  const [tooltip, setTooltip] = useState({
-    toolTipOne: true,
+  const initialState = {
+    toolTipOne: false,
     toolTipTwo: false,
     toolTipThree: false,
     toolTipFour: false,
-  });
+  };
+
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case 'toolTipOne':
+        return {...initialState, toolTipOne: true};
+      case 'toolTipTwo':
+        return {...initialState, toolTipTwo: true};
+      case 'toolTipThree':
+        return {...initialState, toolTipThree: true};
+      case 'toolTipFour':
+        return {...initialState, toolTipFour: true};
+      case 'reset':
+        return {...initialState};
+      default:
+        throw new Error('Unexpected action');
+    }
+  };
+
+  useEffect(() => {
+    dispatch({type: 'toolTipOne'});
+  }, []);
+  const [tooltip, dispatch] = useReducer(reducer, initialState);
 
   return (
     <>
@@ -57,7 +69,7 @@ export function TooltipExmpl() {
               content={
                 <View>
                   <TouchableOpacity
-                    onPress={() => closeToolTipHandler()}
+                    onPress={() => dispatch({type: 'reset'})}
                     style={{alignItems: 'flex-end'}}>
                     <Text>X</Text>
                   </TouchableOpacity>
@@ -65,13 +77,7 @@ export function TooltipExmpl() {
                   <Text>Describe Profile image</Text>
                   <MyButton
                     title="next"
-                    handler={() =>
-                      setTooltip({
-                        ...tooltip,
-                        toolTipOne: false,
-                        toolTipTwo: true,
-                      })
-                    }
+                    handler={() => dispatch({type: 'toolTipTwo'})}
                     bgColor="red"
                     titleStyle={{fontSize: 12}}
                     buttonContainer={{backgroundColor: 'red', marginTop: 15}}
@@ -79,9 +85,7 @@ export function TooltipExmpl() {
                   />
                 </View>
               }
-              onClose={() =>
-                setTooltip({...tooltip, toolTipOne: false, toolTipTwo: true})
-              }>
+              onClose={() => dispatch({type: 'toolTipTwo'})}>
               <Image
                 style={styles.profileImg}
                 source={{uri: 'https://placeimg.com/150/160/people'}}
@@ -95,7 +99,7 @@ export function TooltipExmpl() {
               content={
                 <View>
                   <TouchableOpacity
-                    onPress={() => closeToolTipHandler()}
+                    onPress={() => dispatch({type: 'reset'})}
                     style={{alignItems: 'flex-end'}}>
                     <Text>X</Text>
                   </TouchableOpacity>
@@ -104,13 +108,7 @@ export function TooltipExmpl() {
                   <View style={{flexDirection: 'row'}}>
                     <MyButton
                       title="Back"
-                      handler={() =>
-                        setTooltip({
-                          ...tooltip,
-                          toolTipOne: true,
-                          toolTipTwo: false,
-                        })
-                      }
+                      handler={() => dispatch({type: 'toolTipOne'})}
                       bgColor="red"
                       titleStyle={{fontSize: 12}}
                       buttonContainer={{
@@ -122,13 +120,7 @@ export function TooltipExmpl() {
                     />
                     <MyButton
                       title="next"
-                      handler={() =>
-                        setTooltip({
-                          ...tooltip,
-                          toolTipTwo: false,
-                          toolTipThree: true,
-                        })
-                      }
+                      handler={() => dispatch({type: 'toolTipThree'})}
                       bgColor="red"
                       titleStyle={{fontSize: 12}}
                       buttonContainer={{
@@ -143,9 +135,7 @@ export function TooltipExmpl() {
               }
               contentStyle={{height: 110, width: 180}}
               placement="bottom"
-              onClose={() =>
-                setTooltip({...tooltip, toolTipTwo: false, toolTipThree: true})
-              }>
+              onClose={() => dispatch({type: 'toolTipThree'})}>
               <Text style={{fontSize: 20}}>Arusn</Text>
               <Text style={{fontSize: 16}}>09123456789</Text>
               <Text style={{fontSize: 16}}>Software Developer</Text>
@@ -154,8 +144,7 @@ export function TooltipExmpl() {
           </View>
         </View>
 
-        <ProfileContext.Provider
-          value={{tooltip: tooltip, setTooltip: setTooltip}}>
+        <ProfileContext.Provider value={{tooltip: tooltip, dispatch: dispatch}}>
           <ProfileDetails />
         </ProfileContext.Provider>
       </View>

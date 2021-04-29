@@ -11,24 +11,8 @@ import {
   Image,
   ActivityIndicator,
 } from 'react-native';
-import {
-  Container,
-  Label,
-  Content,
-  Header,
-  Button,
-  Icon,
-  H2,
-  Left,
-  Right,
-  Body,
-  Title,
-  Toast,
-  List,
-  ListItem,
-} from 'native-base';
-// import {AppConfig} from '../config/AppConfig';
-import AppHeader from '../components/AppHeader';
+import {Container, Content, Button} from 'native-base';
+import Header from '../common/Header';
 import {COLORS} from '../common/Colors';
 import Icons from '../common/Icons';
 import {
@@ -39,10 +23,6 @@ import {
 } from '../common/Platform';
 const {width: SCREEN_WIDTH, height: SCREEN_HEIGHT} = Dimensions.get('window');
 
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import {NavigationContainer} from '@react-navigation/native';
-//const Drawer = createDrawerNavigator();
-
 export class UploadResume extends Component {
   state = {};
 
@@ -52,39 +32,12 @@ export class UploadResume extends Component {
     // console.log('number: ', id);
     return (
       <Container>
-        {/* <Header style={styles.header}>
-            <Text style={{color: COLORS.WHITE,}}>Upload Resume</Text>
-        </Header>   */}
-
-        <AppHeader>
-          <Left>
-            <Button
-              onPress={() => this.props.navigation.openDrawer()}
-              transparent>
-              <Icons
-                size={24}
-                type={'AntDesign'}
-                name={'menufold'}
-                style={{
-                  color: COLORS.WHITE,
-                  //marginVertical: normalize(16),
-                  //marginBottom: normalize(24),
-                  marginLeft: normalize(5),
-                  marginHorizontal: normalize(16),
-                }}
-              />
-            </Button>
-          </Left>
-          <Body>
-            <Title style={{color: COLORS.WHITE}}>Upload Resume</Title>
-          </Body>
-          <Right>
-            <Icon
-              name="delete"
-              type="MaterialIcons"
-              style={{color: COLORS.WHITE}}></Icon>
-          </Right>
-        </AppHeader>
+        <Header
+          title={'Upload Resume'}
+          MenuDrawerButton
+          headerStyle={{backgroundColor: COLORS.WARNING, zIndex: 100}}
+          titleStyle={{color: COLORS.WHITE}}
+        />
 
         <Content padder contentContainerStyle={{justifyContent: 'center'}}>
           <View>

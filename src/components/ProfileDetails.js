@@ -30,18 +30,8 @@ const DATA = [
 ];
 
 export function ProfileDetails() {
-  const {tooltip, setTooltip} = useContext(ProfileContext);
+  const {tooltip, dispatch} = useContext(ProfileContext);
   // console.log('tooltip', tooltip);
-
-  closeToolTipHandler = () => {
-    setTooltip({
-      ...tooltip,
-      toolTipOne: false,
-      toolTipTwo: false,
-      toolTipThree: false,
-      toolTipFour: false,
-    });
-  };
 
   return (
     <View style={styles.secBox}>
@@ -55,7 +45,7 @@ export function ProfileDetails() {
                 content={
                   <View>
                     <TouchableOpacity
-                      onPress={() => closeToolTipHandler()}
+                      onPress={() => dispatch({type: 'reset'})}
                       style={{alignItems: 'flex-end'}}>
                       <Text>X</Text>
                     </TouchableOpacity>
@@ -64,13 +54,7 @@ export function ProfileDetails() {
                     <View style={{flexDirection: 'row'}}>
                       <MyButton
                         title="Back"
-                        handler={() =>
-                          setTooltip({
-                            ...tooltip,
-                            toolTipThree: false,
-                            toolTipTwo: true,
-                          })
-                        }
+                        handler={() => dispatch({type: 'toolTipTwo'})}
                         bgColor="red"
                         titleStyle={{fontSize: 12}}
                         buttonContainer={{
@@ -82,13 +66,7 @@ export function ProfileDetails() {
                       />
                       <MyButton
                         title="Next"
-                        handler={() =>
-                          setTooltip({
-                            ...tooltip,
-                            toolTipThree: false,
-                            toolTipFour: true,
-                          })
-                        }
+                        handler={() => dispatch({type: 'toolTipFour'})}
                         bgColor="red"
                         titleStyle={{fontSize: 12}}
                         buttonContainer={{
@@ -103,13 +81,7 @@ export function ProfileDetails() {
                 }
                 contentStyle={{height: 110, width: 180}}
                 placement="bottom"
-                onClose={() =>
-                  setTooltip({
-                    ...tooltip,
-                    toolTipThree: false,
-                    toolTipFour: true,
-                  })
-                }>
+                onClose={() => dispatch({type: 'toolTipFour'})}>
                 <View style={styles.innerSecBox}>
                   <View style={styles.secLeftBox}>
                     <Tooltip
@@ -117,7 +89,7 @@ export function ProfileDetails() {
                       content={
                         <View>
                           <TouchableOpacity
-                            onPress={() => closeToolTipHandler()}
+                            onPress={() => dispatch({type: 'reset'})}
                             style={{alignItems: 'flex-end'}}>
                             <Text>X</Text>
                           </TouchableOpacity>
@@ -126,13 +98,7 @@ export function ProfileDetails() {
                           <View style={{flexDirection: 'row'}}>
                             <MyButton
                               title="Back"
-                              handler={() =>
-                                setTooltip({
-                                  ...tooltip,
-                                  toolTipThree: true,
-                                  toolTipFour: false,
-                                })
-                              }
+                              handler={() => dispatch({type: 'toolTipThree'})}
                               bgColor="red"
                               titleStyle={{fontSize: 12}}
                               buttonContainer={{
@@ -145,9 +111,7 @@ export function ProfileDetails() {
 
                             <MyButton
                               title="complete"
-                              handler={() =>
-                                setTooltip({...tooltip, toolTipFour: false})
-                              }
+                              handler={() => dispatch({type: 'reset'})}
                               bgColor="red"
                               titleStyle={{fontSize: 12}}
                               buttonContainer={{
@@ -162,9 +126,7 @@ export function ProfileDetails() {
                       }
                       contentStyle={{height: 110, width: 180}}
                       placement="bottom"
-                      onClose={() =>
-                        setTooltip({...tooltip, toolTipFour: false})
-                      }>
+                      onClose={() => dispatch({type: 'reset'})}>
                       <Image
                         style={styles.InnerProfileImg}
                         source={{uri: item.img}}
