@@ -17,10 +17,10 @@ This is sample Experiment project where small small experiment did and all are d
 
 This React Native project can be setup locally in <ins>_3 simple steps_</ins> and also assume that **_React Native Cli_** and **_Android Studio_** is already installed.
 
-1. Clone the repository from remote to local machine by using `https://github.com/singhsnehaa/ExptApp/tree/Tooltip-useRender` command in your terminal.
+1. Clone the repository from remote to local machine by using `https://github.com/singhsnehaa/ExptApp/tree/Tooltip-useReducer` command in your terminal.
 
 2. Navigate to the project folder by `cd ExptApp` and install the dependencies by command `npm install`
 
 3. Run the project by using command `npx react-native run-ios`
 
-4. If you have real IOS device please run on that one, some time it create problem with Simulattor due to different version of IOS (IOS-14.4).
+4. It is made for IOS Device, only Design may varry for Android.
