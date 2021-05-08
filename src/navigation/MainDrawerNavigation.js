@@ -5,6 +5,7 @@ import {ContactList} from '../screens/ContactList';
 import {UploadResume} from '../screens/UploadResume';
 import {VideoList} from '../screens/VideoList';
 import {AppleSignIn} from '../screens/AppleSignIn';
+import {SigninGoogle} from '../screens/SigninGoogle';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {NavigationContainer} from '@react-navigation/native';
 const Drawer = createDrawerNavigator();
@@ -12,7 +13,8 @@ const Drawer = createDrawerNavigator();
 export function MainDrawerNavigation() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="AppleSignIn">
+      <Drawer.Navigator initialRouteName="SigninGoogle">
+        <Drawer.Screen name="SigninGoogle" component={SigninGoogle} />
         <Drawer.Screen name="AppleSignIn" component={AppleSignIn} />
         <Drawer.Screen name="HomeScreen" component={HomeScreen} />
         <Drawer.Screen name="VideoList" component={VideoList} />
