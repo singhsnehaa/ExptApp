@@ -89,3 +89,5 @@ Create component and write google-login code as mentioned on docs
 ## To accomplish this project you may follow also:
 
 `https://www.npmjs.com/package/@react-native-google-signin/google-signin`
+
+`https://firebase.google.com/docs/ios/setup#objective-c`
