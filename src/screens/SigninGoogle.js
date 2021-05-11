@@ -23,15 +23,12 @@ export function SigninGoogle() {
   const [gettingLoginStatus, setGettingLoginStatus] = useState(true);
 
   useEffect(() => {
-    // Initial configuration
     GoogleSignin.configure({
       // Mandatory method to call before calling signIn()
-      // scopes: ['https://www.googleapis.com/auth/drive.readonly'],
-      scopes: ['https://www.googleapis.com/auth/drive.appdata'],
-      // Repleace with your webClientId
+      scopes: ['https://www.googleapis.com/auth/drive.readonly'],
       // Generated from Firebase console
       webClientId:
-        '20654916724-stlijer5htu1l87ajgm21m16l5ufk3du.apps.googleusercontent.com',
+        '20654916724-uf9f3uvd06jn7cjtnakoptec007ukidq.apps.googleusercontent.com',
       offlineAccess: true,
     });
     // Check if user is already signed in
@@ -117,21 +114,33 @@ export function SigninGoogle() {
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <Text style={styles.titleText}>Example of Google Sign In</Text>
 
-        {userInfo !== null ? (
-          <>
-            <Text>Name: {userInfo.user.name}</Text>
-            <Text>Email: {userInfo.user.email}</Text>
-            <TouchableOpacity style={styles.buttonStyle} onPress={_signOut}>
-              <Text>Logout</Text>
-            </TouchableOpacity>
-          </>
+        {gettingLoginStatus ? (
+          <View style={styles.container}>
+            <ActivityIndicator size="large" color="#0000ff" />
+          </View>
         ) : (
-          <GoogleSigninButton
-            style={{width: 312, height: 48}}
-            size={GoogleSigninButton.Size.Wide}
-            color={GoogleSigninButton.Color.Dark}
-            onPress={_signIn}
-          />
+          <>
+            {userInfo !== null ? (
+              <>
+                <Image
+                  source={{uri: userInfo.user.photo}}
+                  style={styles.imageStyle}
+                />
+                <Text>Name: {userInfo.user.name}</Text>
+                <Text>Email: {userInfo.user.email}</Text>
+                <TouchableOpacity style={styles.buttonStyle} onPress={_signOut}>
+                  <Text>Logout</Text>
+                </TouchableOpacity>
+              </>
+            ) : (
+              <GoogleSigninButton
+                style={{width: 312, height: 48}}
+                size={GoogleSigninButton.Size.Wide}
+                color={GoogleSigninButton.Color.Dark}
+                onPress={_signIn}
+              />
+            )}
+          </>
         )}
       </View>
     </>
