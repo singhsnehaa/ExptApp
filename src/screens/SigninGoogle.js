@@ -12,10 +12,7 @@ import {
   GoogleSigninButton,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
-import {Icon} from 'react-native-elements';
-import {normalize} from '../common/Platform';
 import {COLORS} from '../common/Colors';
-import Icons from '../common/Icons';
 import Header from '../common/Header';
 
 export function SigninGoogle() {
