@@ -27,7 +27,6 @@ import {
   List,
   ListItem,
 } from 'native-base';
-import AppHeader from '../components/AppHeader';
 import {COLORS} from '../common/Colors';
 import Icons from '../common/Icons';
 import {

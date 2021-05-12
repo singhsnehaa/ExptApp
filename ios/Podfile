@@ -13,7 +13,8 @@ target 'ExptApp' do
   )
 
   pod 'react-native-contacts', :path => '../node_modules/react-native-contacts'
-
+  pod 'Firebase/Analytics'
+  pod 'GoogleSignIn', '~> 5.0.2'
 
   target 'ExptAppTests' do
     inherit! :complete

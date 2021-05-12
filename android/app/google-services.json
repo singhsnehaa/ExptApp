@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "20654916724",
+    "project_id": "exptapp",
+    "storage_bucket": "exptapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:20654916724:android:f60bd76a5330884cb67d21",
+        "android_client_info": {
+          "package_name": "com.exptapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "20654916724-2q14okifr9m236v1k6jn0c2698le08rm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.exptapp",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "20654916724-sbr31vmbb5nd5hk9rsoeef56hop28oc9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.exptapp",
+            "certificate_hash": "1e723a3188e1053c724cdaac13d7825e984f9fec"
+          }
+        },
+        {
+          "client_id": "20654916724-uf9f3uvd06jn7cjtnakoptec007ukidq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOMduE9NVXPk-OhMS827AZ9ueT1CNODZQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "20654916724-stlijer5htu1l87ajgm21m16l5ufk3du.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
