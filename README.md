@@ -58,7 +58,7 @@ keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore |
 
 3. Go to `Add a Product` section and choose `Facebook Login` box and click `set up` button and select `IOS` option.
 
-4. Here you'll get `1 to 9 steps` to follow.one by one and complete all.
+4. Here you'll get `1 to 9 steps` to follow.one by one and complete all.only 1 to 5 are important
 
 5. toggle the `in development` button from header and make it `live`
 
@@ -68,17 +68,16 @@ keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore |
 
 ## Step 4
 
-Create new component and attach code as given on [docs](https://www.npmjs.com/package/react-native-fbsdk-next)
+Create new component and attach code as given on [docs](https://www.npmjs.com/package/react-native-fbsdk)
 
 ```
 ...
 import {
   LoginButton,
   AccessToken,
-  AuthenticationToken
   GraphRequest,
   GraphRequestManager,
-} from 'react-native-fbsdk-next';
+} from 'react-native-fbsdk';
 ...
 
 ...
@@ -105,31 +104,20 @@ const getInfoFromToken = token => {
 
 // on render
 ...
-        <LoginButton
-            onLoginFinished={async (error, result) => {
+       <LoginButton
+            onLoginFinished={(error, result) => {
               if (error) {
                 console.log('login has error: ' + result.error);
               } else if (result.isCancelled) {
                 console.log('login is cancelled.');
               } else {
-                if (Platform.OS === 'ios') {
-                  AuthenticationToken.getAuthenticationTokenIOS().then(data => {
-                    console.log(data?.authenticationToken);
-                    const authIOSToken = data?.accessToken.toString();
-                    this.getInfoFromToken(authIOSToken);
-                  });
-                } else {
-                  AccessToken.getCurrentAccessToken().then(data => {
-                    const accessToken = data?.accessToken.toString();
-                    console.log(data?.accessToken.toString());
-                    this.getInfoFromToken(accessToken);
-                  });
-                }
+                AccessToken.getCurrentAccessToken().then(data => {
+                  const accessToken = data.accessToken.toString();
+                  this.getInfoFromToken(accessToken);
+                });
               }
             }}
-            onLogoutFinished={() => console.log('logout.')}
-            loginTrackingIOS={'limited'}
-            nonceIOS={'my_nonce'}
+            onLogoutFinished={() => this.setState({userInfo: {}})}
           />
 ...
 ```
@@ -137,6 +125,9 @@ const getInfoFromToken = token => {
 ## Step 5
 
 Clean the gradle and reboot your app
+
+for IOs
+cd ios && pod install && cd ..
 
 ```
 cd android && ./gradlew clean && cd ..
@@ -148,4 +139,4 @@ npm run android
 
 `https://mehrankhandev.medium.com/integrating-fbsdk-facebook-login-in-react-native-7b7600ce74a7`
 
-`https://www.npmjs.com/package/react-native-fbsdk-next`
+`https://www.npmjs.com/package/react-native-fbsdk`

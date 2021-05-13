@@ -33,7 +33,7 @@ static void InitializeFlipper(UIApplication *application) {
   InitializeFlipper(application);
 #endif
   
-  
+  // integrating Fb
   [[FBSDKApplicationDelegate sharedInstance] application:application
       didFinishLaunchingWithOptions:launchOptions];
   
@@ -75,7 +75,7 @@ static void InitializeFlipper(UIApplication *application) {
   
   return [[FBSDKApplicationDelegate sharedInstance] application:application
                                                    openURL:url
-                                                   options:options];
+                                                   options:options];  // integrating Fb
 }
 
 

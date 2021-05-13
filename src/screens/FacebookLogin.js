@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import {StyleSheet, View, Text, Platform, Image} from 'react-native';
 import {
   AccessToken,
-  AuthenticationToken,
+  // AuthenticationToken,
   LoginButton,
   GraphRequest,
   GraphRequestManager,
-} from 'react-native-fbsdk-next';
+} from 'react-native-fbsdk';
 
 import {COLORS} from '../common/Colors';
 import Header from '../common/Header';
@@ -17,7 +17,7 @@ export class FacebookLogin extends Component {
   getInfoFromToken = token => {
     const PROFILE_REQUEST_PARAMS = {
       fields: {
-        string: 'id, name, first_name, last_name, email',
+        string: 'id, name, first_name, last_name, email,picture',
         //'email', 'user_friends', 'public_profile','user_likes',
       },
     };
@@ -49,10 +49,10 @@ export class FacebookLogin extends Component {
 
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
           <Text>Facebook Login Screen</Text>
-          {this.state.userInfo && (
+          {Object.keys(userInfo).length > 0 && (
             <View style={{marginBottom: 15}}>
               <Image
-                source={{uri: userInfo.picture}}
+                source={{uri: userInfo.picture.data.url}}
                 style={{height: 100, width: 100}}
               />
               <Text>Logged in As {userInfo.name}</Text>
@@ -61,30 +61,19 @@ export class FacebookLogin extends Component {
           )}
 
           <LoginButton
-            onLoginFinished={async (error, result) => {
+            onLoginFinished={(error, result) => {
               if (error) {
                 console.log('login has error: ' + result.error);
               } else if (result.isCancelled) {
                 console.log('login is cancelled.');
               } else {
-                if (Platform.OS === 'ios') {
-                  AuthenticationToken.getAuthenticationTokenIOS().then(data => {
-                    console.log(data?.authenticationToken);
-                    const authIOSToken = data?.authenticationToken.toString();
-                    this.getInfoFromToken(authIOSToken);
-                  });
-                } else {
-                  AccessToken.getCurrentAccessToken().then(data => {
-                    const accessToken = data?.accessToken.toString();
-                    console.log(data?.accessToken.toString());
-                    this.getInfoFromToken(accessToken);
-                  });
-                }
+                AccessToken.getCurrentAccessToken().then(data => {
+                  const accessToken = data.accessToken.toString();
+                  this.getInfoFromToken(accessToken);
+                });
               }
             }}
             onLogoutFinished={() => this.setState({userInfo: {}})}
-            loginTrackingIOS={'limited'}
-            nonceIOS={'my_nonce'}
           />
         </View>
       </>

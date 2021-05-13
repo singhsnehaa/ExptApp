@@ -13,7 +13,7 @@ target 'ExptApp' do
   )
 
   #pod 'react-native-contacts', :path => '../node_modules/react-native-contacts'
-
+  #pod 'FBSDKLoginKit'
 
   target 'ExptAppTests' do
     inherit! :complete
