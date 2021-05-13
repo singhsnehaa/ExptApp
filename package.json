@@ -7,6 +7,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
+    "dono": "react-native run-android && react-native run-ios",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -21,6 +22,7 @@
     "react-native": "0.64.0",
     "react-native-auto-height-image": "^3.2.4",
     "react-native-elements": "^3.3.2",
+    "react-native-fbsdk-next": "^4.2.0",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-reanimated": "^2.1.0",
     "react-native-safe-area-context": "^3.2.0",

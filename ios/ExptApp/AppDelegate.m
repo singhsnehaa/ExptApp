@@ -12,6 +12,8 @@
 #import <SKIOSNetworkPlugin/SKIOSNetworkAdapter.h>
 #import <FlipperKitReactPlugin/FlipperKitReactPlugin.h>
 
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
 static void InitializeFlipper(UIApplication *application) {
   FlipperClient *client = [FlipperClient sharedClient];
   SKDescriptorMapper *layoutDescriptorMapper = [[SKDescriptorMapper alloc] initWithDefaults];
@@ -30,6 +32,11 @@ static void InitializeFlipper(UIApplication *application) {
 #ifdef FB_SONARKIT_ENABLED
   InitializeFlipper(application);
 #endif
+  
+  
+  [[FBSDKApplicationDelegate sharedInstance] application:application
+      didFinishLaunchingWithOptions:launchOptions];
+  
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
@@ -65,5 +72,18 @@ static void InitializeFlipper(UIApplication *application) {
    options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {
   return [RCTLinkingManager application:application openURL:url options:options];
+  
+  return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                   openURL:url
+                                                   options:options];
 }
+
+
+
+
+
+
+
+
+
 @end

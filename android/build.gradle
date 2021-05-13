@@ -11,6 +11,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+         mavenCentral()  // facebook integration
     }
     dependencies {
         classpath("com.android.tools.build:gradle:4.1.0")
