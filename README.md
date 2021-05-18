@@ -166,3 +166,42 @@ Edit the **_android/app/src/main/res/drawable/bootsplash.xml_** file
 <item android:drawable="@drawable/bg_img" /> mention image name here (no need to add extension)
 ...
 ```
+
+---
+
+---
+
+## Generate Release APK (using Android Studio
+
+1. Open Android studio.
+
+2. Open your app in Android Studio by browsing to the `android` folder of your React Native project. (Eg: ProjectName→Android)
+
+3. when opened the project in android studio it take few minutes for indexing .
+
+4. If you want to change App Logo then
+
+   - click leftsidebar `App→ res→right click→new→Image Assets`
+   - configure Image Assets: choose image from Path , resize, and then click Next→ finish
+
+5. Navigate to the **Build** tab, then click on Generate signed bundle / APK
+
+6. Select **APK** to generate release APK for your React Native Android project. Then, Click on Next.
+
+7. Under Key store path click Create new
+
+8. Pick a path like `/User/mac/ProjectFolder/Android/App/exptapp-keystorre-file/` (you can pic any path not mandatory.) I chose this path for my memory so that when next time to generate Release Apk i can easily select this file form this projects for updating play store projects.
+
+9. Enter all details Like
+
+   > password:exptapp@123, conform Password:exptapp@123,
+   > first_name: Experiment, last_name: App
+   > alias: exptapp
+   > organizational unit : IT, organization: Origin It Solution
+   > City:Ranchi,State:Jharkhand, Country code: 91
+
+10. Thus, click on OK, then click on Next. Select `**Relese**, both the V1 and the V2 signature version` and click Finish.
+
+11. As a result, a build should start after which you should see both expt-release.apk inside of `android/app/release` in your project.
+
+12. now upload your app to Google Play, or share with clients.
