@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* ExptAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ExptAppTests.m */; };
 		040898B6264E8EA100F0749C /* libswiftWebKit.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 040898B5264E8EA100F0749C /* libswiftWebKit.tbd */; };
+		04865C4A26529EA8005BB7EA /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04865C4926529EA8005BB7EA /* BootSplash.storyboard */; };
 		130DF385A2DA25FAC8B25743 /* libPods-ExptApp-ExptAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E3BA98DA37DC51AA4A252F6 /* libPods-ExptApp-ExptAppTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -32,6 +33,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* ExptAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExptAppTests.m; sourceTree = "<group>"; };
 		040898B5264E8EA100F0749C /* libswiftWebKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftWebKit.tbd; path = usr/lib/swift/libswiftWebKit.tbd; sourceTree = SDKROOT; };
+		04865C4926529EA8005BB7EA /* BootSplash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BootSplash.storyboard; path = ../../../.Trash/BootSplash.storyboard; sourceTree = "<group>"; };
 		049D2F9926241C0C00629354 /* ExptApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = ExptApp.entitlements; path = ExptApp/ExptApp.entitlements; sourceTree = "<group>"; };
 		0FA33B9926B57FFA992821FE /* libPods-ExptApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ExptApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* ExptApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExptApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +92,7 @@
 		13B07FAE1A68108700A75B9A /* ExptApp */ = {
 			isa = PBXGroup;
 			children = (
+				04865C4926529EA8005BB7EA /* BootSplash.storyboard */,
 				049D2F9926241C0C00629354 /* ExptApp.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -246,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04865C4A26529EA8005BB7EA /* BootSplash.storyboard in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);

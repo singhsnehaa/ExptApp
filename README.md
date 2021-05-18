@@ -27,10 +27,10 @@ npm install react-native-bootsplash --save
 Generate different sizes of logo for splash screen using `terminal`
 
 ```
-yarn react-native generate-bootsplash ./assets/logo.png
+yarn react-native generate-bootsplash src/assets/logo.png
 ```
 
-## Step 4
+## Step 4 FOR ANDROID
 
 Configure project as docs
 
@@ -91,7 +91,24 @@ Configure project as docs
     </activity>
     ```
 
-## Step 4
+## Step 4 FOR IOS
+
+1. Follow the Step 1 to 3. and then update your Pod using command line `cd ios && pod install && cd ..`
+
+2. First, open the project in Xcode. Open a command line and from the project root and run
+   `open ios/[project_name].xcworkspace`
+
+3. open the file `AppDelegate.m` file. then add peace of code `#import “SplashScreen.h"` above the `#ifdef FB_SONARKIT_ENABLED ` (if #ifdef FB_SONARKIT_ENABLED is not available in file then place any where) and then lastly add `[RNBootSplash initWithStoryboard:@"BootSplash" rootView:rootView];` just above `return YES;` in the didFinishLaunchingWithOptions method
+
+4. Set the `BootSplash.storyboard` as launch screen file: it is downloaded when generate BootSplash plugin install you just do
+   a. Right click on root Project & Drag and drop the file.
+   b. Create folder reference and finish. then it will show on your projects.
+
+5. Set as Launch Screen File. go to main project target and select `general` tab and click on `App Icon and Lounch Image` then select `Lounch Screen File name : BootSplash`.
+
+6. now clean, Build and Run the project.
+
+## Step 5 in your screen
 
 Hide splash screen
 

@@ -4,6 +4,12 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 
+#if RCT_DEV
+#import <React/RCTDevLoadingView.h>
+#endif
+
+#import "RNBootSplash.h"  //splashscren integrated
+
 #ifdef FB_SONARKIT_ENABLED
 #import <FlipperKit/FlipperClient.h>
 #import <FlipperKitLayoutPlugin/FlipperKitLayoutPlugin.h>
@@ -11,8 +17,6 @@
 #import <FlipperKitNetworkPlugin/FlipperKitNetworkPlugin.h>
 #import <SKIOSNetworkPlugin/SKIOSNetworkAdapter.h>
 #import <FlipperKitReactPlugin/FlipperKitReactPlugin.h>
-
-//#import "RNBootSplash.h"  //splashscren integrated
 
 static void InitializeFlipper(UIApplication *application) {
   FlipperClient *client = [FlipperClient sharedClient];
@@ -34,6 +38,11 @@ static void InitializeFlipper(UIApplication *application) {
 #endif
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
+  
+#if RCT_DEV
+ [bridge moduleForClass:[RCTDevLoadingView class]];
+#endif
+  
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"ExptApp"
                                             initialProperties:nil];
@@ -50,8 +59,7 @@ static void InitializeFlipper(UIApplication *application) {
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   
-  //splashscren integrated
-  //[RNBootSplash initWithStoryboard:@"BootSplash" rootView:rootView];
+  [RNBootSplash initWithStoryboard:@"BootSplash" rootView:rootView];    //splashscren integrated
   
   return YES;
 }

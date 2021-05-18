@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import RNBootSplash from 'react-native-bootsplash';
 import {
   normalize,
@@ -25,7 +25,6 @@ export function Splashscreen() {
         headerStyle={{backgroundColor: COLORS.WARNING, zIndex: 100}}
         titleStyle={{color: COLORS.WHITE}}
       />
-
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <Text>Splashscreen Screen</Text>
       </View>

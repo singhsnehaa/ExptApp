@@ -1,5 +1,6 @@
 package com.exptapp;
-
+import android.os.Bundle;   // <- add this RNBootSplashScreen
+import com.zoontek.rnbootsplash.RNBootSplash; // <- add this RNBootSplashScreen
 import com.facebook.react.ReactActivity;
 
 public class MainActivity extends ReactActivity {
@@ -11,5 +12,14 @@ public class MainActivity extends ReactActivity {
   @Override
   protected String getMainComponentName() {
     return "ExptApp";
+  }
+
+
+// <- add this RNBootSplashScreen
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    RNBootSplash.init(R.drawable.bootsplash, MainActivity.this);
   }
 }
